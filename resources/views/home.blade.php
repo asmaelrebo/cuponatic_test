@@ -2,7 +2,7 @@
 @section('content')
     <h1>Búsqueda Cuponatic Test</h1>
     <p>Buscar por palabra clave</p>
-	<form id="searchForm" method="post" class="form-horizontal" action="http://localhost:8004/api/productos/buscar">
+	<form id="searchForm" method="post" class="form-horizontal" action="/api/productos/buscar">
 		<input type="text" name="keyword">
 		<button type="submit" class="search btn btn-primary">Buscar</button>
 	</form>
@@ -36,8 +36,7 @@
 		  	}else{
 			  	$('.results thead').show();
 			  	$.each(json, function(i, val) {
-			  		console.log(val);
-			  		$('.results >table tbody').append('<tr>');
+			  		$('.results table tbody').append('<tr>');
 				  	$('.results table tbody tr:eq('+i+')').append('<td><img src="'+val.image+'" style="width: 100px;"></td>');
 				  	$('.results table tbody tr:eq('+i+')').append('<td>'+val.title+'</td>');
 				  	$('.results table tbody tr:eq('+i+')').append('<td>'+val.price+'</td>');
