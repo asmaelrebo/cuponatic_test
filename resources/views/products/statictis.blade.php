@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
-    <h1>Estadisticas Cuponatic Test</h1>
+    <h1>Estadísticas Cuponatic Test</h1>
 	<div class="panel panel-default">
 		<div class="panel-heading">20 Productos más buscados</div>
 		<div class="panel-body">
