@@ -32,11 +32,11 @@ IGNORE 1 LINES
 (title, description, start_date, end_date, price, image, sold, tags) SET id = NULL;
 ```
 
-##Funciones
+## Funciones
 ### Buscador (http://server:8080/)
 Servicio recibe un request POST con el parámetro "keyword" el cual contiene el texto a buscar y debe devolver la información de los productos, la información retornada es un json.
 Al realizar una búsqueda se actualiza el campo count_total al producto y se asocia la palabra buscada en la tabla search_statistics
 
-###Estadistícas (http://server:8080/productos/estadisticas)
+### Estadistícas (http://server:8080/productos/estadisticas)
 Crear una página (PHP o HTML+JS, usted decide) que muestre los 20 productos más
 buscados y por cada producto las 5 palabras más usadas que hicieron aparecer dicho producto.
