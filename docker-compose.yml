@@ -1,0 +1,28 @@
+version: "2"
+services:
+    database:
+        image: mysql:5.7
+        environment:
+            # with mysql
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: cuponatic_test
+            MYSQL_USER: cuponatic_test
+            MYSQL_PASSWORD: cuponatic_test
+        volumes:
+          - ./data:/var/lib/mysql
+          - ./load_data:/tmp/load_data
+          - ./load_data/structure.sql:/docker-entrypoint-initdb.d/dump.sql
+          - ./load_data/insert.sql:/docker-entrypoint-initdb.d/insert.sql
+        ports:
+            - 3306:3306
+    web:
+        image: hitalos/laravel:latest
+        ports:
+            - 8080:80
+        links:
+            - database
+        volumes:
+            - ./:/var/www
+        command: php -S 0.0.0.0:80 -t public public/index.php
+        environment:
+            DB_CONNECTION: mysql
